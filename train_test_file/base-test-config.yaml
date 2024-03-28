@@ -1,0 +1,26 @@
+data:
+  dataset:
+    name: CSC # corresponding to your
+    root_path: your_dataset_path # /path/to/dataset/root
+    # 0:AID 1:CLRS 2:MLRSN 3:OPTIMAL-31
+    source: 0 # source domain index
+    target: 3 # target domain index
+    n_share: 15 # number of classes to be shared
+    n_source_private: 0 # number of classes in source private domain
+    n_total: 15 # number of classes in total
+
+  dataloader:
+    class_balance: true #
+    data_workers: 4 # how many workers to use for train dataloaders
+    batch_size: 32 # batch_size for source domain and target domain respectively
+
+model: resnet50 # choices=['resnet50', 'resnet18', 'vgg16', 'alexnet']
+
+test:
+  test_interval: 500 # interval of two continuous test phase
+  test_only: True # test a given model and exit
+  resume_file: your_model_path
+  if_save_mat: False
+  feature_file:
+
+gpu_id: 1
